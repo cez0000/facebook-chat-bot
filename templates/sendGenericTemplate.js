@@ -4,8 +4,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
    const nutritionalValue = [];
    for (let i = 0; i < respBody.length; i++) { // I dont like using forEach
       let obj = {
-             "title":respBody[i].food_name,
-             "image_url": respBody[i].thumbnail,
+             "title":"A co to za gówno",
              "subtitle": 'Total Calories: ' +     respBody[i].total_calories + "\n" + 'protein: ' + respBody[i].protein + "\n" + 'Carbohydrates: ' + respBody[i].total_carbohydrate,
             }
             nutritionalValue.push(obj);
