@@ -2,6 +2,7 @@ const processPostback = require('../processes/postback');
 const processMessage = require('../processes/messages');
 module.exports = function(app, chalk){
   app.get('/webhook', function(req, res) {
+    console.log(req)
     if (req.query['hub.verify_token'] === process.env.VERIFY_TOKEN){
        console.log('webhook verified');
        res.status(200).send(req.query['hub.challenge']);
@@ -12,11 +13,8 @@ module.exports = function(app, chalk){
   });
   
   app.post('/webhook', function(req, res) {
-    //checking for page subscription.
-    if (req.body.object === 'page'){
-       
-       /* Iterate over each entry, there can be multiple entries 
-       if callbacks are batched. */
+   console.log(req);
+   console.log(res)
        req.body.entry.forEach(function(entry) {
        // Iterate over each messaging event
           entry.messaging.forEach(function(event) {
@@ -30,5 +28,5 @@ module.exports = function(app, chalk){
     });
     res.sendStatus(200);
    }
-  });
+  );
 }
