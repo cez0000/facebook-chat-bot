@@ -3,7 +3,6 @@ const senderAction = require('../templates/senderAction');
 const sendMessage = require('../templates/sendMessage');
 const sendGenericTemplate = require('../templates/sendGenericTemplate');
 module.exports = function processMessage(event) {
-    if (!event.message.is_echo) {
       const message = event.message;
       const senderID = event.sender.id;
       console.log("Received message from senderId: " + senderID);
@@ -12,7 +11,6 @@ module.exports = function processMessage(event) {
       senderAction(senderID);
       // after the response is recieved we will send the details in a Generic template
   
-       sendMessage(senderID,{text: "chuj"});
+       sendMessage(senderID,{text: "a co to za gówno"});
       
-  }
 }
